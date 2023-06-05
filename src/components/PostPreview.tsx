@@ -19,6 +19,7 @@ interface PostPreviewProps {
 export default function PostPreview({ id, index }: PostPreviewProps) {
   const { data, isLoading } = useSWR(`post/${id}`, () => getItemInfo(id))
 
+  console.log(index)
   if (isLoading) return <PostPreviewPlaceholder />
 
   const { by, kids, score, title, url, time } = data
@@ -31,7 +32,7 @@ export default function PostPreview({ id, index }: PostPreviewProps) {
   return (
     <article className={post}>
       <header className={postHeader}>
-        {index && <small>{index + 1}.</small>}
+        {index != null && <small>{index + 1}.</small>}
         <a
           href={url}
           target="_blank"
