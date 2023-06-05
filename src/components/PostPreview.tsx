@@ -28,8 +28,6 @@ export default function PostPreview({ id, index }: PostPreviewProps) {
     domain = new URL(url).hostname.replace('www.', '')
   } catch {}
 
-  // TODO Relative time
-
   return (
     <article className={post}>
       <header className={postHeader}>
